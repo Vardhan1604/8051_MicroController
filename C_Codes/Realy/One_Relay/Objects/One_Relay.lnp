@@ -1,0 +1,7 @@
+".\Objects\STARTUP.obj",
+".\Objects\Main_Handler.obj",
+".\Objects\Relay.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\One_Relay" 
+PRINT(".\Listings\One_Relay.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

@@ -1,0 +1,59 @@
+A51 MACRO ASSEMBLER  5_MULTIPLE                                                           08/20/2024 11:51:28 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\5 MULTIPLE.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 5 MULTIPLE.ASM SET(SMALL) DEBUG PRINT(.\Listings\5 MULTIPLE.lst) OBJECT
+                      (.\Objects\5 MULTIPLE.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 802E              2     SJMP MAIN       
+                       3     
+0030                   4     ORG 0030H
+0030                   5     MAIN:
+0030 7405              6         MOV A, #05H 
+0032 7805              7         MOV R0, #05H 
+0034                   8     LOOP:
+0034 F590              9         MOV P1, A    
+0036 1141             10         ACALL DELAY  
+0038 28               11         ADD A, R0    
+0039 B4FFF8           12         CJNE A, #0FFH, LOOP 
+003C 7590FF           13         MOV P1,#0FFH
+003F 80FE             14         SJMP $
+                      15     
+0041                  16     DELAY:
+0041 7914             17         MOV R1, #20 
+0043                  18     L1:
+0043 7A64             19         MOV R2, #100 
+0045                  20     L2:
+0045 7B64             21         MOV R3, #100 
+0047                  22     L3:
+0047 DBFE             23         DJNZ R3, L3 
+0049 DAFA             24         DJNZ R2, L2 
+004B D9F6             25         DJNZ R1, L1 
+004D 22               26         RET        
+                      27     
+                      28     END
+A51 MACRO ASSEMBLER  5_MULTIPLE                                                           08/20/2024 11:51:28 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   0041H   A   
+L1 . . . . . . . .  C ADDR   0043H   A   
+L2 . . . . . . . .  C ADDR   0045H   A   
+L3 . . . . . . . .  C ADDR   0047H   A   
+LOOP . . . . . . .  C ADDR   0034H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj" 
+TO ".\Objects\UART_2" 
+PRINT(".\Listings\UART_2.m51") CODE( 0X0000-0X0FFF )

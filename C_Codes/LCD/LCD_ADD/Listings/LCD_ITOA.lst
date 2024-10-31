@@ -1,0 +1,56 @@
+C51 COMPILER V9.60.7.0   LCD_ITOA                                                          09/26/2024 03:15:35 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LCD_ITOA
+OBJECT MODULE PLACED IN .\Objects\LCD_ITOA.obj
+COMPILER INVOKED BY: C:\Users\maniv\AppData\Local\Keil_v5\C51\BIN\C51.EXE LCD_ITOA.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJE
+                    -CTEXTEND PRINT(.\Listings\LCD_ITOA.lst) TABS(2) OBJECT(.\Objects\LCD_ITOA.obj)
+
+line level    source
+
+   1          
+   2          
+   3          #include "LCD_ITOA"
+*** WARNING C318 IN LINE 3 OF LCD_ITOA.c: can't open file 'LCD_ITOA'
+   4          #include "LCD.h"
+   5          
+   6          void LCD_ADD(signed int num)
+   7          {
+   8   1          int i = 0;
+   9   1      
+  10   1          char temp[10];
+  11   1      
+  12   1          if (num == 0)
+  13   1          {
+  14   2              LCD_data('0');
+  15   2          }
+  16   1          if (num < 0)
+  17   1          {
+  18   2              LCD_data('-');
+  19   2              num = -num;
+  20   2          }
+  21   1      
+  22   1          while (num > 0)
+  23   1          {
+  24   2              temp[i++] = (num % 10) + '0';
+  25   2              num /= 10;
+  26   2          }
+  27   1          for (--i; i >= 0; i--)
+  28   1          {
+  29   2              LCD_data(temp[i]);
+  30   2          }
+  31   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD.obj",
+".\Objects\LCD_Scroll_display.obj" 
+TO ".\Objects\LCD_SCROLL_DISPLAY" 
+PRINT(".\Listings\LCD_SCROLL_DISPLAY.m51") CODE( 0X0000-0X0FFF )

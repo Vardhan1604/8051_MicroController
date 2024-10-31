@@ -1,0 +1,73 @@
+C51 COMPILER V9.60.7.0   LCD                                                               09/25/2024 16:56:03 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN .\Objects\LCD.obj
+COMPILER INVOKED BY: C:\Users\maniv\AppData\Local\Keil_v5\C51\BIN\C51.EXE LCD.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXT
+                    -END PRINT(.\Listings\LCD.lst) TABS(2) OBJECT(.\Objects\LCD.obj)
+
+line level    source
+
+   1          
+   2          
+   3          #include "LCD.h"
+   4          #include "Delay.h"
+   5          
+   6          
+   7          void LCD_busy()
+   8          {
+   9   1        rs=0;
+  10   1        rw=1;
+  11   1        while(busy == 0);
+  12   1        
+  13   1      }
+  14           void LCD_cmd(unsigned char cmd)
+  15           {
+  16   1         void LCD_busy();
+  17   1         LCD = cmd;
+  18   1         rs=0;
+  19   1         rw=0;
+  20   1         en=1;
+  21   1         Delay(1);
+  22   1         en=0;
+  23   1       }
+  24          
+  25           void LCD_data(unsigned char data1)
+  26           {
+  27   1         void LCD_busy();
+  28   1         LCD = data1;
+  29   1         rs=1;
+  30   1         rw=0;
+  31   1         en=1;
+  32   1         Delay(1);
+  33   1         en=0;
+  34   1       }
+  35          
+  36           void LCD_init()
+  37           {
+  38   1         int i;
+  39   1         unsigned char a[5]={0x01,0x0c,0x06,0x38,0x80};
+  40   1         
+  41   1         for(i = 0; i < 5; i++)
+  42   1         {
+  43   2           LCD_cmd(a[i]);
+  44   2           Delay(10);
+  45   2         }
+  46   1         
+  47   1       }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    105    ----
+   CONSTANT SIZE    =      5    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.7.0   LCD                                                               09/25/2024 16:56:03 PAGE 2   
+
+   DATA SIZE        =   ----       7
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

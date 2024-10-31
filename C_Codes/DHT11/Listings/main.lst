@@ -1,0 +1,123 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              10/03/2024 02:38:42 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Users\maniv\AppData\Local\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEX
+                    -TEND PRINT(.\Listings\main.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include <stdio.h>
+   3          #include "LCD.h" // Include the LCD header file
+   4          #include "ports.h"
+   5          
+   6          #define DHT11_PIN P1 // Define the pin connected to DHT11
+   7          sbit DHT11 = DHT11_PIN^0; // Define DHT11 pin
+   8          
+   9          void delay_us(unsigned int us);
+  10          void delay_ms(unsigned int ms);
+  11          void start_signal(void);
+  12          bit response_signal(void);
+  13          unsigned char read_byte(void);
+  14          bit read_dht11(unsigned char *temp, unsigned char *hum);
+  15          
+  16          void main(void) {
+  17   1          unsigned char temperature = 0, humidity = 0;
+  18   1          char buffer[16];
+  19   1      
+  20   1          LCD_Init(); // Initialize the LCD
+  21   1      
+  22   1          while (1) {
+  23   2              if (read_dht11(&temperature, &humidity)) {
+  24   3                  // Prepare strings to display
+  25   3                  sprintf(buffer, "Temp: %d C", temperature);
+  26   3                  LCD_Print(buffer); // Display temperature
+  27   3                  delay_ms(2000); // Wait 2 seconds to display
+  28   3      
+  29   3                  LCD_Cmd_Write(0xC0); // Move to the second line
+  30   3                  sprintf(buffer, "Hum: %d %%", humidity);
+  31   3                  LCD_Print(buffer); // Display humidity
+  32   3                  delay_ms(2000); // Wait 2 seconds to display
+  33   3      
+  34   3                  LCD_Cmd_Write(0x01); // Clear display
+  35   3              }
+  36   2          }
+  37   1      }
+  38          
+  39          void delay_us(unsigned int us) {
+  40   1          // This function assumes a 12MHz clock; adjust as necessary
+  41   1          while (us--) {
+  42   2              // Each loop iteration takes approximately 1 탎
+  43   2            ; // Do nothing for one clock cycle
+  44   2          }
+  45   1      }
+  46          
+  47          void delay_ms(unsigned int ms) {
+  48   1          while (ms--) {
+  49   2              delay_us(1000); // 1000 탎 in 1 ms
+  50   2          }
+  51   1      }
+  52          
+  53          void start_signal(void) {
+  54   1          DHT11 = 0; // Send low signal
+C51 COMPILER V9.60.7.0   MAIN                                                              10/03/2024 02:38:42 PAGE 2   
+
+  55   1          delay_ms(18); // Delay for 18 ms
+  56   1          DHT11 = 1; // Release the bus
+  57   1          delay_us(30); // Wait for the response
+  58   1      }
+  59          
+  60          bit response_signal(void) {
+  61   1          bit response = 0;
+  62   1          delay_us(1); // Wait for 1 탎
+  63   1      
+  64   1          if (!DHT11) { // Check for low signal
+  65   2              delay_us(80); // Wait for 80 탎
+  66   2              if (DHT11) { // Check for high signal
+  67   3                  response = 1; // Response received
+  68   3              }
+  69   2          }
+  70   1          delay_us(80); // Wait for 80 탎
+  71   1          return response;
+  72   1      }
+  73          
+  74          unsigned char read_byte(void) {
+  75   1          unsigned char i, byte = 0;
+  76   1      
+  77   1          for (i = 0; i < 8; i++) {
+  78   2              while (!DHT11); // Wait for the pin to go high
+  79   2              delay_us(30); // Wait for 30 탎
+  80   2              if (DHT11) {
+  81   3                  byte |= (1 << (7 - i)); // Read the bit
+  82   3              }
+  83   2              while (DHT11); // Wait for the pin to go low
+  84   2          }
+  85   1          return byte; // Return the byte read
+  86   1      }
+  87          
+  88          bit read_dht11(unsigned char *temp, unsigned char *hum) {
+  89   1          start_signal(); // Start the communication
+  90   1          if (response_signal()) { // Check for response
+  91   2              *hum = read_byte(); // Read humidity
+  92   2              *temp = read_byte(); // Read temperature
+  93   2              read_byte(); // Read checksum (discard)
+  94   2              return 1; // Successful read
+  95   2          }
+  96   1          return 0; // Read failed
+  97   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    291    ----
+   CONSTANT SIZE    =     22    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      24
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----       1
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

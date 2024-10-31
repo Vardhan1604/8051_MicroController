@@ -1,0 +1,8 @@
+".\Objects\STARTUP.obj",
+".\Objects\LCD_CGRAM_8_characters.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD.obj",
+".\Objects\CGRAM_SP.obj" 
+TO ".\Objects\LCD_CGRAM_8_characters" 
+PRINT(".\Listings\LCD_CGRAM_8_characters.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

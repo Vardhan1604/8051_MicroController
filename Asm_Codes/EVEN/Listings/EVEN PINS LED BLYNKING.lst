@@ -1,0 +1,60 @@
+A51 MACRO ASSEMBLER  EVEN_PINS_LED_BLYNKING                                               08/20/2024 17:26:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\EVEN PINS LED BLYNKING.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE EVEN PINS LED BLYNKING.asm SET(SMALL) DEBUG PRINT(.\Listings\EVEN PINS 
+                      LED BLYNKING.lst) OBJECT(.\Objects\EVEN PINS LED BLYNKING.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 802E              2     SJMP MAIN   
+                       3     
+0030                   4     ORG 0030H
+0030                   5     MAIN:
+0030 7401              6         MOV A, #01H   
+                       7     
+0032                   8     LOOP:
+0032 F590              9         MOV P1, A     
+0034 113F             10         ACALL DELAY   
+0036 23               11         RL A          
+0037 23               12         RL A          
+0038 B400F7           13         CJNE A, #00H, LOOP 
+003B 7401             14         MOV A, #01H   
+003D 80F3             15         SJMP LOOP     
+                      16     
+003F                  17     DELAY: 
+003F 7932             18         MOV R1, #50   
+0041                  19     L1:  
+0041 7A64             20         MOV R2, #0100 
+0043                  21     L2:
+0043 7B64             22         MOV R3, #0100 
+0045                  23     L3:
+0045 DBFE             24         DJNZ R3, L3   
+0047 DAFA             25         DJNZ R2, L2   
+0049 D9F6             26         DJNZ R1, L1   
+004B 22               27         RET           
+                      28     
+                      29     END
+A51 MACRO ASSEMBLER  EVEN_PINS_LED_BLYNKING                                               08/20/2024 17:26:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   003FH   A   
+L1 . . . . . . . .  C ADDR   0041H   A   
+L2 . . . . . . . .  C ADDR   0043H   A   
+L3 . . . . . . . .  C ADDR   0045H   A   
+LOOP . . . . . . .  C ADDR   0032H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

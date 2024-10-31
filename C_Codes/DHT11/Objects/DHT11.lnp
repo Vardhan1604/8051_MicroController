@@ -1,0 +1,7 @@
+".\Objects\STARTUP.obj",
+".\Objects\LCD.obj",
+".\Objects\main.obj",
+".\Objects\Delay.obj" 
+TO ".\Objects\DHT11" 
+PRINT(".\Listings\DHT11.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

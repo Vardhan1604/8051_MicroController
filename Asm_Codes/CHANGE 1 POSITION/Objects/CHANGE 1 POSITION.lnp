@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\CHANGE 1 POSITION.obj" 
+TO ".\Objects\CHANGE 1 POSITION" 
+PRINT(".\Listings\CHANGE 1 POSITION.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

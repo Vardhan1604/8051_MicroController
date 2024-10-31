@@ -1,0 +1,8 @@
+".\Objects\STARTUP.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD.obj",
+".\Objects\LCD_ADD.obj",
+".\Objects\LCD_ITOA.obj" 
+TO ".\Objects\LCD_ADD" 
+PRINT(".\Listings\LCD_ADD.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

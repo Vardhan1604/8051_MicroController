@@ -1,0 +1,9 @@
+".\Objects\STARTUP.obj",
+".\Objects\Delay.obj",
+".\Objects\KEYPAD.obj",
+".\Objects\LCD.obj",
+".\Objects\Main_Handler.obj",
+".\Objects\7_Segment_diaply.obj" 
+TO ".\Objects\KEYPAD_LCD_7_Segment" 
+PRINT(".\Listings\KEYPAD_LCD_7_Segment.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

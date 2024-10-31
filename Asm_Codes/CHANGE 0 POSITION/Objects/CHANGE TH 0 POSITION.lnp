@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\CHANGE 0 POSITION.obj" 
+TO ".\Objects\CHANGE TH 0 POSITION" 
+PRINT(".\Listings\CHANGE TH 0 POSITION.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

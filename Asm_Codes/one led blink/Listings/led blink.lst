@@ -1,0 +1,49 @@
+A51 MACRO ASSEMBLER  LED_BLINK                                                            08/18/2024 12:00:53 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\led blink.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE led blink.asm SET(SMALL) DEBUG PRINT(.\Listings\led blink.lst) OBJECT(.
+                      \Objects\led blink.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 0000H
+0000 802E              2                     SJMP start
+                       3                     
+0030                   4                     ORG 0030H
+0030 C290              5               start:CLR P1.0
+0032 113A              6                             ACALL delay
+0034 D290              7                             SETB P1.0
+0036 113A              8                             ACALL delay
+0038 80F6              9                             SJMP start
+                      10                             
+003A 7864             11              delay: MOV R0 ,#100
+003C 7964             12                     abc:    MOV R1, #100
+003E 7A64             13                     bc:     MOV R2, #100
+0040 DAFE             14                     cd:  DJNZ R2,cd
+0042 D9FA             15                             DJNZ R1,bc
+0044 D8F6             16                             DJNZ R0,abc
+0046 22               17                             RET
+                      18                             
+                      19                             END
+A51 MACRO ASSEMBLER  LED_BLINK                                                            08/18/2024 12:00:53 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ABC. . . . . . . .  C ADDR   003CH   A   
+BC . . . . . . . .  C ADDR   003EH   A   
+CD . . . . . . . .  C ADDR   0040H   A   
+DELAY. . . . . . .  C ADDR   003AH   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+START. . . . . . .  C ADDR   0030H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,197 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    10/01/2024  22:41:49  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\USERS\MANIV\APPDATA\LOCAL\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\Delay.obj, .\Objects\Relay.obj, .
+>> \Objects\Switch.obj, .\Objects\Main_Handler.obj TO .\Objects\Relay_Switch PRINT (.\Listings\Relay_Switch.m51) RAMSIZE
+>>  (256) CODE (0X0000-0X1FFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\Delay.obj (DELAY)
+  .\Objects\Relay.obj (RELAY)
+  .\Objects\Switch.obj (SWITCH)
+  .\Objects\Main_Handler.obj (MAIN_HANDLER)
+  C:\USERS\MANIV\APPDATA\LOCAL\KEIL_V5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\Relay_Switch (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         _DATA_GROUP_
+                    0009H     0017H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         ?BI?SWITCH
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0020H     UNIT         ?PR?_DELAY?DELAY
+            CODE    08ACH     0014H     UNIT         ?PR?_RELAY1_CALL?RELAY
+            CODE    08C0H     000CH     UNIT         ?PR?MAIN?MAIN_HANDLER
+            CODE    08CCH     0008H     UNIT         ?PR?SWITCH_CALL?SWITCH
+            CODE    08D4H     0003H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\Relay_Switch (?C_STARTUP)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN_HANDLER
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN_HANDLER          -----    -----
+  +--> ?PR?_RELAY1_CALL?RELAY
+
+?PR?_RELAY1_CALL?RELAY         0008H    0001H
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  10/01/2024  22:41:49  PAGE 2
+
+
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\Relay_Switch (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0800H         SEGMENT       ?C_C51STARTUP
+  I:0021H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0803H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0800H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0800H         LINE#         133
+  C:0802H         LINE#         134
+  C:0803H         LINE#         135
+  C:0804H         LINE#         136
+  C:0806H         LINE#         185
+  C:0809H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:088CH         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        num
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:088CH         LINE#         4
+  C:088CH         LINE#         5
+  C:088CH         LINE#         7
+  C:0896H         LINE#         8
+  C:0896H         LINE#         9
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  10/01/2024  22:41:49  PAGE 3
+
+
+  C:08A4H         LINE#         10
+  C:08ABH         LINE#         11
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        RELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:08ACH         PUBLIC        _Relay1_Call
+  B:0090H.0       PUBLIC        Relay1
+  -------         PROC          _RELAY1_CALL
+  D:0008H         SYMBOL        num
+  C:08ACH         LINE#         5
+  C:08AEH         LINE#         6
+  C:08AEH         LINE#         7
+  C:08B2H         LINE#         8
+  C:08B2H         LINE#         9
+  C:08B9H         LINE#         10
+  C:08BDH         LINE#         11
+  C:08BDH         LINE#         12
+  C:08BFH         LINE#         14
+  C:08BFH         LINE#         15
+  C:08BFH         LINE#         16
+  -------         ENDPROC       _RELAY1_CALL
+  -------         ENDMOD        RELAY
+
+  -------         MODULE        SWITCH
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:0020H.0       PUBLIC        status
+  C:08CCH         PUBLIC        Switch_Call
+  B:00A0H.1       PUBLIC        SW1
+  -------         PROC          SWITCH_CALL
+  C:08CCH         LINE#         6
+  C:08CCH         LINE#         7
+  C:08CCH         LINE#         9
+  C:08CFH         LINE#         10
+  C:08CFH         LINE#         11
+  C:08D1H         LINE#         13
+  C:08D1H         LINE#         14
+  C:08D3H         LINE#         15
+  -------         ENDPROC       SWITCH_CALL
+  -------         ENDMOD        SWITCH
+
+  -------         MODULE        MAIN_HANDLER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:08C0H         PUBLIC        main
+  B:0090H.0       PUBLIC        Relay1
+  B:0090H.1       PUBLIC        Switch
+  -------         PROC          MAIN
+  C:08C0H         LINE#         7
+  C:08C0H         LINE#         8
+  C:08C0H         LINE#         9
+  C:08C2H         LINE#         10
+  C:08C2H         LINE#         11
+  C:08C2H         LINE#         13
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  10/01/2024  22:41:49  PAGE 4
+
+
+  C:08CAH         LINE#         15
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN_HANDLER
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?SWITCH_CALL?SWITCH
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0059H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=10.1 xdata=0 code=218
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

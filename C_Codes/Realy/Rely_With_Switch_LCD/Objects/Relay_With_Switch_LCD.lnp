@@ -1,0 +1,8 @@
+".\Objects\STARTUP.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD.obj",
+".\Objects\Relay.obj",
+".\Objects\Main_Handler.obj" 
+TO ".\Objects\Relay_With_Switch_LCD" 
+PRINT(".\Listings\Relay_With_Switch_LCD.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

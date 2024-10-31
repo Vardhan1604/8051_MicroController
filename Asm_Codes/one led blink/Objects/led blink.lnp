@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\led blink.obj" 
+TO ".\Objects\led blink" 
+PRINT(".\Listings\led blink.m51") CODE( 0X0000-0X0FFF )

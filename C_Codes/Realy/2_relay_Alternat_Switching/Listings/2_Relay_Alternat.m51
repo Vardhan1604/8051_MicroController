@@ -1,0 +1,160 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    10/01/2024  22:38:21  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\USERS\MANIV\APPDATA\LOCAL\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\Delay.obj, .\Objects\Relay.obj, .
+>> \Objects\Main_Handler.obj TO .\Objects\2_Relay_Alternat PRINT (.\Listings\2_Relay_Alternat.m51) RAMSIZE (256) CODE (0
+>> X0000-0X1FFF)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\Delay.obj (DELAY)
+  .\Objects\Relay.obj (RELAY)
+  .\Objects\Main_Handler.obj (MAIN_HANDLER)
+
+
+LINK MAP OF MODULE:  .\Objects\2_Relay_Alternat (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0024H     UNIT         ?PR?RELAY_CALL?RELAY
+            CODE    0824H     0020H     UNIT         ?PR?_DELAY?DELAY
+            CODE    0844H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0850H     0005H     UNIT         ?PR?MAIN?MAIN_HANDLER
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\2_Relay_Alternat (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN_HANDLER
+
+?PR?MAIN?MAIN_HANDLER
+  +--> ?PR?RELAY_CALL?RELAY
+
+?PR?RELAY_CALL?RELAY
+  +--> ?PR?_DELAY?DELAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\2_Relay_Alternat (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  10/01/2024  22:38:21  PAGE 2
+
+
+  -------         MODULE        ?C_STARTUP
+  C:0844H         SEGMENT       ?C_C51STARTUP
+  I:0008H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0847H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0844H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0844H         LINE#         133
+  C:0846H         LINE#         134
+  C:0847H         LINE#         135
+  C:0848H         LINE#         136
+  C:084AH         LINE#         185
+  C:084DH         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0824H         PUBLIC        _Delay
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        num
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0824H         LINE#         4
+  C:0824H         LINE#         5
+  C:0824H         LINE#         7
+  C:082EH         LINE#         8
+  C:082EH         LINE#         9
+  C:083CH         LINE#         10
+  C:0843H         LINE#         11
+  -------         ENDPROC       _DELAY
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        RELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.2       PUBLIC        Relay1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  10/01/2024  22:38:21  PAGE 3
+
+
+  B:0090H.3       PUBLIC        Relay2
+  C:0800H         PUBLIC        Relay_Call
+  -------         PROC          RELAY_CALL
+  C:0800H         LINE#         5
+  C:0800H         LINE#         6
+  C:0800H         LINE#         8
+  C:0802H         LINE#         9
+  C:0809H         LINE#         10
+  C:080BH         LINE#         11
+  C:0812H         LINE#         12
+  C:0814H         LINE#         13
+  C:081BH         LINE#         14
+  C:081DH         LINE#         15
+  -------         ENDPROC       RELAY_CALL
+  -------         ENDMOD        RELAY
+
+  -------         MODULE        MAIN_HANDLER
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  C:0850H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0850H         LINE#         4
+  C:0850H         LINE#         6
+  C:0850H         LINE#         8
+  C:0850H         LINE#         9
+  C:0850H         LINE#         10
+  C:0853H         LINE#         11
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN_HANDLER
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0058H BYTE ( 4%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=88
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

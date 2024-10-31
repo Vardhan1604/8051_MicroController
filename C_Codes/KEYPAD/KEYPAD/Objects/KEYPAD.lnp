@@ -1,0 +1,8 @@
+".\Objects\STARTUP.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD.obj",
+".\Objects\KEYPAD.obj",
+".\Objects\Main_Handler.obj" 
+TO ".\Objects\KEYPAD" 
+PRINT(".\Listings\KEYPAD.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

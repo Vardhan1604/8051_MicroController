@@ -1,0 +1,65 @@
+A51 MACRO ASSEMBLER  3LEDBLINK                                                            08/20/2024 12:08:34 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\3ledblink.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE 3ledblink.asm SET(SMALL) DEBUG PRINT(.\Listings\3ledblink.lst) OBJECT(.
+                      \Objects\3ledblink.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+0000 802E              2     SJMP MAIN       
+                       3     
+0030                   4     ORG 0030H
+                       5             
+0030                   6     MAIN:
+0030 759000            7         MOV P1,#00H
+0033 C291              8         CLR P1.1
+0035 C292              9         CLR P1.2
+0037 D290             10         SETB P1.0
+0039 114D             11         ACALL DELAY 
+003B C292             12             CLR P1.2
+003D C290             13         CLR P1.0
+003F D291             14         SETB P1.1
+0041 114D             15         ACALL DELAY 
+0043 C290             16             CLR P1.0
+0045 C291             17         CLR P1.1
+0047 D292             18         SETB P1.2
+0049 114D             19         ACALL DELAY 
+                      20     
+004B 80E3             21         SJMP MAIN     
+                      22     
+004D                  23     DELAY:
+004D 7914             24         MOV R1, #20  
+004F                  25     L1:  
+004F 7A64             26         MOV R2, #100  
+0051                  27     L2:
+0051 7B64             28         MOV R3, #100  
+0053                  29     L3:
+0053 DBFE             30         DJNZ R3, L3  
+0055 DAFA             31         DJNZ R2, L2  
+0057 D9F6             32         DJNZ R1, L1  
+0059 22               33         RET          
+                      34     
+                      35     END
+A51 MACRO ASSEMBLER  3LEDBLINK                                                            08/20/2024 12:08:34 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   004DH   A   
+L1 . . . . . . . .  C ADDR   004FH   A   
+L2 . . . . . . . .  C ADDR   0051H   A   
+L3 . . . . . . . .  C ADDR   0053H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

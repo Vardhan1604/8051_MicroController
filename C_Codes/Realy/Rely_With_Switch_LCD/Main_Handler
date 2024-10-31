@@ -1,0 +1,27 @@
+
+#include <Reg51.h>
+
+#include "Relay.h"
+#include "Switch.h"
+///sbit SW1 = P2^1;
+
+///sbit Relay = P2^2;
+
+void main()
+{
+while(1)
+{
+	if(Switch_Call() == 1)
+	{
+		Relay_Call(1);
+		LCD_Print("Relay is Turn ON");
+	}
+	else
+	{
+		Relay_Call(0);
+	    LCD_Print("Relay is Turn OFF");
+
+	}
+	
+}
+}

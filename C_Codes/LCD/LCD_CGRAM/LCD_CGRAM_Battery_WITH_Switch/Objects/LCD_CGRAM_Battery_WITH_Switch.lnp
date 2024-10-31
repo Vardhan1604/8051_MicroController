@@ -1,0 +1,7 @@
+".\Objects\STARTUP.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD.obj",
+".\Objects\LCD_CGRAM_Battery_WITH_Switch.obj" 
+TO ".\Objects\LCD_CGRAM_Battery_WITH_Switch" 
+PRINT(".\Listings\LCD_CGRAM_Battery_WITH_Switch.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

@@ -1,0 +1,48 @@
+C51 COMPILER V9.60.7.0   LCD_CGRAM_8_CHARACTERS                                            09/26/2024 00:58:36 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LCD_CGRAM_8_CHARACTERS
+OBJECT MODULE PLACED IN .\Objects\LCD_CGRAM_8_characters.obj
+COMPILER INVOKED BY: C:\Users\maniv\AppData\Local\Keil_v5\C51\BIN\C51.EXE LCD_CGRAM_8_characters.c OPTIMIZE(8,SPEED) BRO
+                    -WSE DEBUG OBJECTEXTEND PRINT(.\Listings\LCD_CGRAM_8_characters.lst) TABS(2) OBJECT(.\Objects\LCD_CGRAM_8_characters.obj)
+
+line level    source
+
+   1          
+   2          
+   3          
+   4          
+   5          #include <reg51.h>
+   6          #include "LCD.h"
+   7          #include "Delay.h"
+   8          #include "CGRAM_SP.h"
+   9          
+  10          void main()
+  11          {
+  12   1        int i;
+  13   1        
+  14   1        LCD_init();
+  15   1        while(1)
+  16   1        {
+  17   2      for(i=0; i<8 ; i++)
+  18   2        {
+  19   3          
+  20   3        LCD_CGRAM(i , 0x80 + i*2);
+  21   3          
+  22   3        }
+  23   2      }
+  24   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     43    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

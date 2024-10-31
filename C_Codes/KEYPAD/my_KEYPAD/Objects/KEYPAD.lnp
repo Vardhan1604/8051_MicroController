@@ -1,0 +1,9 @@
+".\Objects\STARTUP.obj",
+".\Objects\Delay.obj",
+".\Objects\LCD.obj",
+".\Objects\main.obj",
+".\Objects\KEYPAD.obj",
+".\Objects\LCD_ITOA.obj" 
+TO ".\Objects\KEYPAD" 
+PRINT(".\Listings\KEYPAD.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

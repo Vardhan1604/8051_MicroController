@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\FF TO 00.obj" 
+TO ".\Objects\FF TO 00" 
+PRINT(".\Listings\FF TO 00.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

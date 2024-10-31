@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\3ledblink.obj" 
+TO ".\Objects\3LED BLINK" 
+PRINT(".\Listings\3LED BLINK.m51") RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Main.obj" 
+TO ".\Objects\Hardware_Delay" 
+PRINT(".\Listings\Hardware_Delay.m51") CODE( 0X0000-0X0FFF )

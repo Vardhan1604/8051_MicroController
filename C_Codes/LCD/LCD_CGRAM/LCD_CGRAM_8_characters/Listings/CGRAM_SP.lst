@@ -1,0 +1,78 @@
+C51 COMPILER V9.60.7.0   CGRAM_SP                                                          09/25/2024 20:50:05 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE CGRAM_SP
+OBJECT MODULE PLACED IN .\Objects\CGRAM_SP.obj
+COMPILER INVOKED BY: C:\Users\maniv\AppData\Local\Keil_v5\C51\BIN\C51.EXE CGRAM_SP.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJE
+                    -CTEXTEND PRINT(.\Listings\CGRAM_SP.lst) TABS(2) OBJECT(.\Objects\CGRAM_SP.obj)
+
+line level    source
+
+   1          
+   2          #include "LCD.h"
+   3          #include "CGRAM_SP.h"
+   4          
+   5          void LCD_CGRAM( unsigned int num , unsigned char loc)
+   6          {
+   7   1        
+   8   1        
+   9   1        int i;
+  10   1        
+  11   1      char  bell = 0;
+  12   1      char  bat  = 6;
+  13   1        
+  14   1        char a[8]={0x04, 0x0e, 0x0e, 0x1f, 0x1f, 0x00, 0x04, 0x00};
+  15   1        char b[8]={0x00, 0x04, 0x04, 0x15, 0x0e, 0X04, 0X00, 0x00};
+  16   1        char c[8]={0x00, 0x04, 0x08, 0x1f, 0x08, 0x04, 0x00, 0x00};
+  17   1        char d[8]={0x00, 0x04, 0x02, 0x1f, 0x02, 0x04, 0x00, 0x00};
+  18   1        char e[8]={0x00, 0x04, 0x0E, 0x15, 0x04, 0x04, 0x00, 0x00};
+  19   1        char f[8]={0x00, 0x0A, 0x1f, 0x1f, 0x0e, 0x04, 0x00, 0x00};
+  20   1        char g[8]={0x0E, 0x1B, 0x11, 0x11, 0x11, 0x11, 0x1F, 0x00};
+  21   1        char h[8]={0x0E, 0x1B, 0x11, 0x11, 0x1F, 0x1F, 0x1F, 0x00};
+  22   1        
+  23   1      
+  24   1      
+  25   1        
+  26   1        for(i = 0; i < 8; i++)
+  27   1        {
+  28   2          LCD_cmd(0x40 + i);
+  29   2          LCD_data(a[i]);
+  30   2          LCD_cmd(0x48 + i);
+  31   2          LCD_data(b[i]);
+  32   2          LCD_cmd(0x50 + i);
+  33   2          LCD_data(c[i]);
+  34   2          LCD_cmd(0x58 + i);
+  35   2          LCD_data(d[i]);
+  36   2          LCD_cmd(0x60 + i);
+  37   2          LCD_data(e[i]);
+  38   2          LCD_cmd(0x68 + i);
+  39   2          LCD_data(f[i]);
+  40   2          LCD_cmd(0x70 + i);
+  41   2          LCD_data(g[i]);
+  42   2          LCD_cmd(0x78 + i);
+  43   2          LCD_data(h[i]);
+  44   2          
+  45   2        }
+  46   1        
+  47   1          LCD_cmd(loc);
+  48   1          LCD_data(num);
+  49   1        
+  50   1        
+  51   1        
+  52   1      }
+
+
+C51 COMPILER V9.60.7.0   CGRAM_SP                                                          09/25/2024 20:50:05 PAGE 2   
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    343    ----
+   CONSTANT SIZE    =     64    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      71
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

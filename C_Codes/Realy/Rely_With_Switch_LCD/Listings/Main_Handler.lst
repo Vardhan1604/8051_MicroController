@@ -1,0 +1,44 @@
+C51 COMPILER V9.60.7.0   MAIN_HANDLER                                                      10/01/2024 22:52:10 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN_HANDLER
+OBJECT MODULE PLACED IN .\Objects\Main_Handler.obj
+COMPILER INVOKED BY: C:\Users\maniv\AppData\Local\Keil_v5\C51\BIN\C51.EXE Main_Handler.c OPTIMIZE(8,SPEED) BROWSE DEBUG 
+                    -OBJECTEXTEND PRINT(.\Listings\Main_Handler.lst) TABS(2) OBJECT(.\Objects\Main_Handler.obj)
+
+line level    source
+
+   1          #include "LCD.h"
+   2          #include "Delay.h"
+   3          #include <reg51.h>
+   4          #include "Relay.h"
+   5          
+   6          
+   7          
+   8          void main()
+   9          {
+  10   1        Relay1 = 0;
+  11   1        Relay2 = 0;
+  12   1        LCD_Init();
+  13   1        LCD_Print("Press To Start");
+  14   1        while(1)
+  15   1        {
+  16   2        Relay1_Call(Switch1);
+  17   2        Relay2_Call(Switch2);
+  18   2          
+  19   2        }
+  20   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     34    ----
+   CONSTANT SIZE    =     15    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

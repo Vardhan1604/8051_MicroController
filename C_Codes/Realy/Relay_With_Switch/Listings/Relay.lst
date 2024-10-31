@@ -1,0 +1,40 @@
+C51 COMPILER V9.60.7.0   RELAY                                                             10/01/2024 22:39:53 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE RELAY
+OBJECT MODULE PLACED IN .\Objects\Relay.obj
+COMPILER INVOKED BY: C:\Users\maniv\AppData\Local\Keil_v5\C51\BIN\C51.EXE Relay.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTE
+                    -XTEND PRINT(.\Listings\Relay.lst) TABS(2) OBJECT(.\Objects\Relay.obj)
+
+line level    source
+
+   1          
+   2          #include "Relay.h"
+   3          #include "Delay.h"
+   4          
+   5          void Relay1_Call(unsigned char num)
+   6          {
+   7   1        if(num == 0)
+   8   1        {
+   9   2          Delay(400);
+  10   2          if(num == 0)
+  11   2          { 
+  12   3            Relay1 = ~Relay1;
+  13   3      
+  14   3          }
+  15   2        }
+  16   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     20    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
