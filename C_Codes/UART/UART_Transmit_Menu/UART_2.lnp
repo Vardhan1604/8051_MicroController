@@ -1,0 +1,8 @@
+"STARTUP.obj",
+"main.obj",
+"Delay.obj",
+"LCD.obj",
+"Uart.obj" 
+TO "UART_2" 
+RAMSIZE(256) 
+CODE( 0X0000-0X1FFF )

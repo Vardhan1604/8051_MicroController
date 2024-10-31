@@ -1,7 +1,8 @@
 ".\Objects\STARTUP.obj",
 ".\Objects\Delay.obj",
 ".\Objects\LCD.obj",
-".\Objects\main.obj" 
+".\Objects\main.obj",
+".\Objects\Uart.obj" 
 TO ".\Objects\UART_Display_Rec" 
 PRINT(".\Listings\UART_Display_Rec.m51") RAMSIZE(256) 
 CODE( 0X0000-0X1FFF )
